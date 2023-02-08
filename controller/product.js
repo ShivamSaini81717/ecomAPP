@@ -3,6 +3,7 @@ import { Category } from "../models/category.js";
 import { Product } from "../models/product.js";
 import ErrorHandler from "../utils/error.js";
 import { getDataUri } from "../utils/features.js";
+import cloudinary from "cloudinary";
 
 
 // -----------------------all product----------------------------------------
