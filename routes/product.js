@@ -8,7 +8,7 @@ const router =express.Router();
 
 router.get("/all",getAllProducts);
 router.get("/admin",isAuthenticated,isAdmin, getAdminProducts);
-router.get("/new", isAuthenticated, isAdmin , singleUpload ,createProduct);
+router.post("/new", isAuthenticated, isAdmin , singleUpload ,createProduct);
 router
   .route("/single/:id")
   .get(getProductDetails)
