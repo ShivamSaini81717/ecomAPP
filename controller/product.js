@@ -27,7 +27,7 @@ export const getAllProducts = asyncError(async (req, res, next) => {
 
 // --------------------------------------create product----------------------------------------
 export const createProduct = asyncError(async (req, res, next) => {
-  const { name, description, category, price, stock } = req.body;
+  const { name, description, category, price,mrp, stock } = req.body;
 
   if (!req.file) return next(new ErrorHandler("Please add image", 400));
 
@@ -43,6 +43,7 @@ export const createProduct = asyncError(async (req, res, next) => {
     description,
     category,
     price,
+     mrp,
     stock,
     images: [image],
   });
