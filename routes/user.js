@@ -21,7 +21,7 @@ router.get("/me",isAuthenticated, getMyProfile);
 // updates
 router.put("/updateprofile",isAuthenticated,updateProfile);
 router.put("/changepassword",isAuthenticated,changePassword);
-router.put("/updatepic",isAuthenticated,updatePic);
+router.put("/updatepic",isAuthenticated,singleUpload,updatePic);
 
 // paswords
 router.route("/forgetpassword").post(forgetpassword).put(resetpassword);
