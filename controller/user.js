@@ -129,26 +129,26 @@ export const login = asyncError(async (req, res, next) => {
 
 
 // ------------------------------update pic-------------------------
-  export const updatePic = asyncError(async (req, res, next) => {
-    const user = await User.findById(req.user._id);
-  
-    const file = getDataUri(req.file);
-  
-    await cloudinary.v2.uploader.destroy(user.avatar.public_id);
-  
-    const myCloud = await cloudinary.v2.uploader.upload(file.content);
-    user.avatar = {
-      public_id: myCloud.public_id,
-      url: myCloud.secure_url,
-    };
-  
-    await user.save();
-  
-    res.status(200).json({
-      success: true,
-      message: "Avatar Updated Successfully",
-    });
+ export const updatePic = asyncError(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+
+  const file = getDataUri(req.file);
+
+  await cloudinary.v2.uploader.destroy(user.avatar.public_id);
+
+  const myCloud = await cloudinary.v2.uploader.upload(file.content);
+  user.avatar = {
+    public_id: myCloud.public_id,
+    url: myCloud.secure_url,
+  };
+
+  await user.save();
+
+  res.status(200).json({
+    success: true,
+    message: "Avatar Updated Successfully",
   });
+});
 
 
 // ---------------------------------forgetpassword-------------------------------------
